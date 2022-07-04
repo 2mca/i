@@ -113,7 +113,9 @@ class ViewController:
  
 }
  
- 
+ //Webview 
+
+ webView.loadRequest(URLRequest(url: URL(string: "https://www.google.com/")!))
  
 //MapKit View
 //Multiple locations point
