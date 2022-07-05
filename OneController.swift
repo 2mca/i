@@ -1,3 +1,65 @@
+//loginfrom --user defaults 
+
+import UIKit
+
+class Loginform: UIViewController {
+
+    @IBOutlet weak var userlabel: UILabel!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        if(UserDefaults.standard.string(forKey: "uid") != nil)
+        {
+            userlabel.text = "Helloo, " + (UserDefaults.standard.string(forKey: "uid") ?? "Admin")!
+        }
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+//Login form 
+        
+import UIKit
+
+class ViewController: UIViewController {
+
+    @IBOutlet weak var myUsername: UITextField!
+    
+
+    @IBOutlet weak var myPassword: UITextField!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        if(UserDefaults.standard.string(forKey: "uid") != nil)
+        {
+            
+        }
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    @IBAction func Submit(_ sender: Any) {
+        if (myUsername.text=="Admin" &&  myPassword.text=="123")
+        {
+            UserDefaults.standard.set(myUsername.text, forKey: "uid")
+            performSegue(withIdentifier: "ibridge", sender: self)
+        }
+    }
+
+}
+
+
 @IBAction func Submirt(_ sender: Any) {
         // define url
         let irequest = NSMutableURLRequest(url: NSURL(string: "https://patelhinalm9.000webhostapp.com/student_insert_data.php") as! URL)
